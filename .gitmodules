@@ -1,0 +1,6 @@
+[submodule ".emacs.d"]
+	path = .emacs.d
+	url = https://github.com/Gagcrab/suzmacs.git
+[submodule ".vim_runtime"]
+	path = .vim_runtime
+	url = https://github.com/Gagcrab/vimrc.git

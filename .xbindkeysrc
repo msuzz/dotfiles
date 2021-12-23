@@ -1,0 +1,19 @@
+# Mousewheel left; move backward through tabs
+"xdotool keydown ctrl keydown shift key Tab keyup shift keyup ctrl"
+b:6
+
+# Mousewheel right; move forward through tabs
+"xdotool keydown ctrl key Tab keyup ctrl"
+b:7
+
+# Previous desktop
+#"xdotool keydown ctrl keydown alt key Left keyup alt keyup ctrl"
+b:10
+
+# Next desktop
+#"xdotool keydown ctrl keydown alt key Right keyup alt keyup ctrl"
+b:11
+
+### Below is for MaKey MaKey ###
+#"mpv "Obi-Wan - 'Hello there.'-rEq1Z0bjdwc.webm""
+#c:111

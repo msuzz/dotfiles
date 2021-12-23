@@ -1,0 +1,4 @@
+#include ".Xresources.d/theme-gruvbox-dark"
+#include ".Xresources.d/xft"
+#include ".Xresources.d/xterm"
+#include ".Xresources.d/xterm-theme-gruvbox-dark"

@@ -1,0 +1,12 @@
+#!/bin/bash
+if [ "$1" = "" ]; then  # allows us to specify a directory as an argument
+   result="$PWD"        # use working directory if no argument is given
+else
+   result="$1"
+fi
+
+workdir=${result##*/}      # work folder name
+resultclean=$(echo "$result" | sed 's|\[\([^]]*\)\]|\\[\1\\]|g')    # escape square braces
+
+find "$result" -type f \( -name '*.md5' -o -name '*.MD5' \) -print0 | sort -z | xargs -r0 md5sum > "$result/$workdir".md5
+sed -i 's|^{a-z0-9}{32}\|.|g' "$result/$workdir".md5    # cleanup resulting sumfile

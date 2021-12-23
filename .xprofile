@@ -1,0 +1,2 @@
+! Our .Xresources won't load without this line
+xrdb -I$HOME ~/.Xresources

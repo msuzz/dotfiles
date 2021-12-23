@@ -1,0 +1,57 @@
+# vim: set filetype=sh :
+
+# michael-x550cc specific settings go here
+
+# auto start tmux, and new have new terminals connect to session
+#if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#    exec tmux new-session -As 0
+#fi
+
+alias vim='flatpak run org.vim.Vim $@'
+alias emacs='flatpak run org.gnu.emacs $@'
+
+export BROWSER=firefox
+EDITOR='flatpak run org.vim.Vim'
+SUDO_EDITOR='nano -w'      # vim is not installed by default in toolboxes
+export EDITOR SUDO_EDITOR
+
+# Things are unstable unless these are disabled
+export MOZ_WEBRENDER=0
+export MOZ_X11_EGL=0
+
+if [[ $(hostname) == "java-dev" ]]; then
+    export JAVA_HOME=/usr/lib/jvm/java-openjdk
+    export MAVEN_HOME=/opt/apache-maven-3.8.1
+    export PATH="$MAVEN_HOME/bin:$PATH"
+elif [[ $(hostname) == "perl-dev" ]]; then
+    source ~​/perl5/perlbrew/etc/bashrc
+fi
+
+# GPU
+#export vblank_mode=0
+export LIBVA_DRIVER_NAME=vdpau
+export __GL_THREADED_OPTIMIZATION=1
+export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
+
+export PATH="$HOME/.local/bin:$PATH"
+
+############################################
+####### Below is old LXQt/arch stuff #######
+############################################
+
+# Desktop environment
+#export DG_CURRENT_DESKTOP='X-Generic'   # For LXQt
+#export QT_STYLE_OVERRIDE=kvantum
+#export NO_AT_BRIDGE=1
+
+# Locale
+#export LANGUAGE="en_AU:en_GB:en"
+#export LC_ALL="en_AU.UTF-8"
+#export LC_MEASUREMENT="en_AU.UTF-8"
+#export LC_MONETARY="en_AU.UTF-8"
+#export LC_COLLATE="en_AU.UTF-8"
+#export LC_NUMERIC="en_AU.UTF-8"
+#export LC_TIME="en_AU.UTF-8"
+#export LANG="en_AU.UTF-8"
+
+

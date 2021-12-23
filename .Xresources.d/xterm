@@ -1,0 +1,47 @@
+! XTerm settings
+
+XTerm.termName: xterm-256color
+XTerm.vt100.locale: false
+XTerm.vt100.utf8: true
+XTerm.vt100.geometry: 80x32
+XTerm.vt100.renderFont: true
+XTerm.vt100.faceName:Lucida Console:size=11:style=Regular:antialias=true
+!XTerm.vt100.boldFont:Lucida Console:size=11:style=Regular:antialias=true
+
+! Line spacing. Valid values range from 0.9 to 1.5, with 1.0 being default
+XTerm.vt100.scaleHeight: 1.1
+
+! Swap background and foreground colours
+! XTerm.vt100.reverseVideo: true
+
+! The default Alt key behavior in xterm is a modifier to send eight bit input
+! characters e.g. to insert æ by pressing Alt+f. To make Alt instead send
+! a ^[ (escape) key (as in gnome-terminal and konsole), set
+! XTerm.vt100.metaSendsEscape: true
+
+! On Arch Linux, xterm sends ^H key when backspace is pressed. This breaks the
+! Ctrl+H key combination on Emacs. The workaround is to send ^? when backspace
+! is pressed by setting the resources
+XTerm.vt100.backarrowKey: false
+XTerm.ttyModes: erase ^?
+
+XTerm.vt100.saveLines: 4096
+
+! XTerm.vt100.scrollBar: true
+! XTerm.vt100.scrollbar.width: 8
+
+! Normally, selected text is stored in PRIMARY, to be pasted with Shift+Insert
+! or by using the middle mouse button. By toggling this option to on, selected
+! text will use CLIPBOARD, allowing you to paste the text selected in an xterm
+! window into a GUI application using Ctrl+v. The corresponding resource is
+XTerm.vt100.selectToClipboard: true
+
+! Copy mouse-selected text to both PRIMARY and CLIPBOARD
+<Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+
+! Key bindings for Ctrl-Shift-C and Ctrl-Shift-V
+Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
+
+! To make the bell character notify the window manager of urgency, set
+XTerm.vt100.bellIsUrgent: true
