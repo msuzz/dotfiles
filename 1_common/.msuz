@@ -4,16 +4,9 @@
 if [[ $(hostname) == "linux-babpoot" ]] && [ -f $HOME/.msuz_babpoot ]; then
     . $HOME/.msuz_babpoot
 # Check for Ideapad config
-elif [[ $(hostname) == msuz-flex5-* ]] && [ -f $HOME/.msuz_flex5 ]; then
+elif [[ $(hostname) =~ ^flex5 ]] && [ -f $HOME/.msuz_flex5 ]; then
     . $HOME/.msuz_flex5
 # Check for *old* laptop config
 elif [ -f $HOME/.msuz_x550cc ]; then
     . $HOME/.msuz_x550cc
 fi
-
-#export WINEDLLOVERRIDES=winemenubuilder.exe=d
-
-# Wine PBA/Esync variables
-#export PBA_ENABLE=1
-#export WINEESYNC=1
-
