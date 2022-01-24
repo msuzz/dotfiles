@@ -1,6 +1,6 @@
 # vim: set filetype=sh :
 
-# linux-babpoot specific settings go here
+# linux-cubepoot specific settings go here
 
 export BROWSER=firefox
 EDITOR='emacsclient -t'

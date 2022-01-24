@@ -1,12 +1,26 @@
 # vim: set filetype=sh :
 
-# Check for desktop config
-if [[ $(hostname) == "linux-babpoot" ]] && [ -f $HOME/.msuz_babpoot ]; then
-    . $HOME/.msuz_babpoot
-# Check for Ideapad config
-elif [[ $(hostname) =~ ^flex5 ]] && [ -f $HOME/.msuz_flex5 ]; then
+# Common settings for every system - these can be overrided in specific .msuz
+# files
+#
+# vi is POSIX, so default to that
+EDITOR=vi
+SUDO_EDITOR=vi
+export EDITOR SUDO_EDITOR
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# Configurations for specific computers below
+# We use Stow to install dotfiles, so we only need to check for file presence.
+# . is POSIX-defined, so we use this in stead of 'source'
+#
+# Check for the new Linux cubepoota
+if [ -f $HOME/.msuz_cubepoot ]; then
+    . $HOME/.msuz_cubepoot
+# Check for old laptop config
+elif [ -f $HOME/.msuz_flex5 ]; then
     . $HOME/.msuz_flex5
-# Check for *old* laptop config
+# Check for Ideapad config
 elif [ -f $HOME/.msuz_x550cc ]; then
     . $HOME/.msuz_x550cc
 fi

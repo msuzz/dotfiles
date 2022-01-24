@@ -6,9 +6,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# My shit
-if [ -f $HOME/.msuz ]; then
-    . $HOME/.msuz
+if [[ $(uname -s) =~ ^CYGWIN ]]; then
+    unset MAILCHECK
 fi
 
 # Pretty colours/preserve root
@@ -99,7 +98,7 @@ shopt -s histappend histreedit
 set -o noclobber
 
 # perlbrew home folder setup
-if [[ $(hostname) == "perl-dev" ]] || [[ $(hostname) == "linux-babpoot" ]]; then
+if [[ $(hostname) == "perl-dev" ]]; then
     if [ -f $HOME/perl5/perlbrew/etc/bashrc ]; then
 	source $HOME/perl5/perlbrew/etc/bashrc
     fi

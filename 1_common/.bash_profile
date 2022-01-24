@@ -1,4 +1,8 @@
 # vim: set filetype=sh :
 
-source $HOME/.bashrc
+# My shit
+if [ -f $HOME/.msuz ]; then
+    . $HOME/.msuz
+fi
 
+. $HOME/.bashrc
