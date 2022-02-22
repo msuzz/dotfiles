@@ -1,3 +1,6 @@
+# Stuff that gets generated while using directories with Stow
+1_common/.local/share/fonts/.uuid
+
 # These fonts are either too large for git or proprietary
 1_common/.local/share/fonts/iosevka*
 1_common/.local/share/fonts/WinFonts/
