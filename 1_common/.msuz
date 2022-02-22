@@ -29,9 +29,9 @@ fi
 # Check for the new Linux cubepoota
 if [ -f $HOME/.msuz_cubepoot ]; then
     . $HOME/.msuz_cubepoot
-# Check for Ideapad config
-elif [ -f $HOME/.msuz_flex5 ]; then
-    . $HOME/.msuz_flex5
+# Check for WSL config
+elif [ -f $HOME/.msuz_wsl ]; then
+    . $HOME/.msuz_wsl
 # Check for old laptop config
 elif [ -f $HOME/.msuz_x550cc ]; then
     . $HOME/.msuz_x550cc

@@ -1,0 +1,10 @@
+# vim: set filetype=sh :
+
+# This file is for an OpenSUSE Tumbleweed WSL2 system
+
+EDITOR=vim
+SUDO_EDITOR=vim
+export EDITOR SUDO_EDITOR
+
+export PATH="$HOME/.local/bin/:$PATH"
+
