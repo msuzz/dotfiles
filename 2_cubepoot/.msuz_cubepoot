@@ -11,18 +11,5 @@ export EDITOR VISUAL SUDO_EDITOR
 export MOZ_WEBRENDER=1
 export MOZ_X11_EGL=1
 
-# fzf keybinds and completion
-#
-# <CTRL+T> list files+folders in current directory (e.g., git commit <CTRL+T>, select a few files using <TAB>, finally <Return>)
-# <CTRL+R> search history of shell commands
-# <ALT+C> fuzzy change directory
-#
-if [[ $SHELL == "bash" ]]; then
-   source /usr/share/bash-completion/completions/fzf-key-bindings
-   source /usr/share/bash-completion/completions/fzf
-elif [[ $SHELL == "fish" ]]; then
-   source /usr/share/fish/completions/fzf_key_bindings.fish
-   source /usr/share/fish/completions/fzf.fish
-fi   
-
 export PATH="$HOME/.local/bin/:$HOME/.cargo/bin:$HOME/pycharm/bin:$PATH"
+

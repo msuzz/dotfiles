@@ -8,7 +8,19 @@ EDITOR=vi
 SUDO_EDITOR=vi
 export EDITOR SUDO_EDITOR
 
-export PATH="$HOME/.local/bin:$PATH"
+# fzf keybinds and completion
+#
+# <CTRL+T> list files+folders in current directory (e.g., git commit <CTRL+T>, select a few files using <TAB>, finally <Return>)
+# <CTRL+R> search history of shell commands
+# <ALT+C> fuzzy change directory
+#
+if [[ $SHELL == "bash" ]]; then
+   source /usr/share/bash-completion/completions/fzf-key-bindings
+   source /usr/share/bash-completion/completions/fzf
+elif [[ $SHELL == "fish" ]]; then
+   source /usr/share/fish/completions/fzf_key_bindings.fish
+   source /usr/share/fish/completions/fzf.fish
+fi
 
 # Configurations for specific computers below
 # We use Stow to install dotfiles, so we only need to check for file presence.
@@ -17,10 +29,10 @@ export PATH="$HOME/.local/bin:$PATH"
 # Check for the new Linux cubepoota
 if [ -f $HOME/.msuz_cubepoot ]; then
     . $HOME/.msuz_cubepoot
-# Check for old laptop config
+# Check for Ideapad config
 elif [ -f $HOME/.msuz_flex5 ]; then
     . $HOME/.msuz_flex5
-# Check for Ideapad config
+# Check for old laptop config
 elif [ -f $HOME/.msuz_x550cc ]; then
     . $HOME/.msuz_x550cc
 fi
