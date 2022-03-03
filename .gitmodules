@@ -2,7 +2,3 @@
 	path = 3_emacs/.emacs.d
 	url = https://github.com/Gagcrab/suzmacs.git
 	branch = master
-[submodule "3_emacs/.vim"]
-	path = 3_emacs/.vim
-	url = https://github.com/Gagcrab/suz_vimrc.git
-	branch = master
