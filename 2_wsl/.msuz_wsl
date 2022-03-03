@@ -6,5 +6,7 @@ EDITOR=vim
 SUDO_EDITOR=vim
 export EDITOR SUDO_EDITOR
 
-export PATH="$HOME/.local/bin/:$PATH"
+export PSN00BSDK_LIBS="/usr/local/lib/libpsn00b"
+
+export PATH="$HOME/.local/bin/:$PATH:/usr/local/mipsel-none-elf/bin"
 
