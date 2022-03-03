@@ -97,10 +97,8 @@ shopt -s histappend histreedit
 # > won't clobber override with >|
 set -o noclobber
 
-# perlbrew home folder setup
-if [[ $(hostname) == "perl-dev" ]]; then
-    if [ -f $HOME/perl5/perlbrew/etc/bashrc ]; then
-	source $HOME/perl5/perlbrew/etc/bashrc
-    fi
+# perlbrew setup
+if [ -f $HOME/perl5/perlbrew/etc/bashrc ]; then
+    source $HOME/perl5/perlbrew/etc/bashrc
 fi
 
