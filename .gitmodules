@@ -1,8 +1,8 @@
 [submodule "3_emacs/.emacs.d"]
 	path = 3_emacs/.emacs.d
-	url = https://github.com/Gagcrab/suzmacs.git
+	url = https://github.com/msuzz/suzmacs.git
 	branch = master
 [submodule "3_vim/.vim"]
 	path = 3_vim/.vim
-	url = https://github.com/Gagcrab/suz_vimrc.git
+	url = https://github.com/msuzz/suz_vimrc.git
 	branch = master
