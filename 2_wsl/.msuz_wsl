@@ -10,3 +10,5 @@ export PSN00BSDK_LIBS="/usr/local/lib/libpsn00b"
 
 export PATH="$HOME/.local/bin/:$PATH:/usr/local/mipsel-none-elf/bin"
 
+GUIX_PROFILE="/home/michael/.config/guix/current"
+. "$GUIX_PROFILE/etc/profile"
