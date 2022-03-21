@@ -1,6 +1,15 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR __fish_initialized:3100
+SETUVAR --export BROWSER:firefox
+SETUVAR --export EDITOR:vim
+SETUVAR --export GUIX_PROFILE:/home/michael/\x2econfig/guix/current
+SETUVAR --path PATH:/home/michael/\x2eperlbrew/libs/perl\x2d5\x2e34\x2e0\x40michael/bin\x1e/home/michael/perl5/perlbrew/bin\x1e/home/michael/perl5/perlbrew/perls/perl\x2d5\x2e34\x2e0/bin
+SETUVAR --export PSN00BSDK_LIBS:/usr/local/lib/libpsn00b
+SETUVAR --export SUDO_EDITOR:vim
+SETUVAR __fish_initialized:3400
+SETUVAR _fisher_edc_2F_bass_files:/home/michael/\x2econfig/fish/functions/__bass\x2epy\x1e/home/michael/\x2econfig/fish/functions/bass\x2efish
+SETUVAR _fisher_jorgebucaran_2F_fisher_files:/home/michael/\x2econfig/fish/functions/fisher\x2efish\x1e/home/michael/\x2econfig/fish/completions/fisher\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1eedc/bass
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:005fd7
@@ -30,3 +39,5 @@ SETUVAR fish_pager_color_completion:\x1d
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_selected_background:\x2dr
+SETUVAR fish_user_paths:/home/michael/\x2eperlbrew/libs/perl\x2d5\x2e34\x2e0\x40michael/bin\x1e/home/michael/perl5/perlbrew/bin\x1e/home/michael/perl5/perlbrew/perls/perl\x2d5\x2e34\x2e0/bin\x1e/usr/local/mipsel\x2dnone\x2delf/bin\x1e/home/michael/\x2elocal/bin
