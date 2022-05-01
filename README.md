@@ -8,3 +8,5 @@ This is my personal dotfiles repo, currently including configs for:
 Emacs and vim configs are included as submodules.
 
 Use GNU Stow to link the desired folders to $HOME.
+
+NOTE: The emacs repo is outdated. I use doom-emacs now, because life is too short.
