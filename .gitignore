@@ -5,3 +5,6 @@
 1_common/.local/share/fonts/iosevka*
 1_common/.local/share/fonts/WinFonts/
 1_common/.local/share/fonts/Pragmata\ Pro*
+
+# Ignore fish variables
+1_common/.config/fish/fish_variables
