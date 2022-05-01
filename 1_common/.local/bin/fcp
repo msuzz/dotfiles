@@ -1,2 +1,0 @@
-nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceCompositionPipeline = $1 }"
-xrefresh
