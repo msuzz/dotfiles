@@ -6,5 +6,13 @@
 1_common/.local/share/fonts/WinFonts/
 1_common/.local/share/fonts/Pragmata\ Pro*
 
+# Fonts downloaded and installed by Doom Emacs
+1_common/.local/share/fonts/all-the-icons.ttf
+1_common/.local/share/fonts/file-icons.ttf
+1_common/.local/share/fonts/fontawesome.ttf
+1_common/.local/share/fonts/material-design-icons.ttf
+1_common/.local/share/fonts/octicons.ttf
+1_common/.local/share/fonts/weathericons.ttf
+
 # Ignore fish variables
 1_common/.config/fish/fish_variables
