@@ -5,6 +5,9 @@ SELF=$(basename "$(readlink -f "${0}")")
 
 DAYZ_ID=221100
 
+DEFAULT_GAMEPORT=2302
+DEFAULT_QUERYPORT=27016
+
 FLATPAK_STEAM="com.valvesoftware.Steam"
 FLATPAK_PARAMS=(
   --branch=stable
@@ -26,7 +29,7 @@ DEBUG=0
 LAUNCH=0
 STEAM=""
 SERVER=""
-PORT="27016"
+PORT="${DEFAULT_QUERYPORT}"
 NAME=""
 INPUT=()
 MODS=()
@@ -76,13 +79,14 @@ Command line options:
   -s <address[:port]>
   --server <address[:port]>
     Retrieve a server's mod list and add it to the remaining input.
-    Uses the daemonforge.dev DayZ server JSON API.
+    Uses the dayzsalauncher.com DayZ server JSON API.
     If --launch is set, it will automatically connect to the server.
+    The optional port is the server's game port. Default is: ${DEFAULT_GAMEPORT}
 
   -p <port>
   --port <port>
     The server's query port, not to be confused with the server's game port.
-    Default is: 27016
+    Default is: ${DEFAULT_QUERYPORT}
 
 Environment variables:
 
@@ -123,6 +127,7 @@ while (( "$#" )); do
       ;;
     -s|--server)
       SERVER="${2}"
+      [[ "${SERVER}" = *:* ]] || SERVER="${SERVER}:${DEFAULT_GAMEPORT}"
       shift
       ;;
     -p|--port)
@@ -186,6 +191,20 @@ check_flatpak() {
     && { flatpak ps | grep "${FLATPAK_STEAM}"; } >/dev/null 2>&1
 }
 
+dec2base64() {
+  echo "$1" \
+    | LC_ALL=C gawk '
+      {
+        do {
+          printf "%c", and($1, 255)
+          $1 = rshift($1, 8)
+        } while ($1 > 0)
+      }
+    ' \
+    | base64 \
+    | sed 's|/|-|g; s|+|_|g; s|=||g'
+}
+
 
 # ----
 
@@ -217,7 +236,8 @@ query_server_api() {
   debug "Querying ${query}"
   response="$(curl "${API_PARAMS[@]}" "${query}")"
   debug "Parsing API response"
-  jq -e ".result.mods[]" >/dev/null 2>&1 <<< "${response}" || err "Missing mods data from API response"
+  jq -e '.result.mods | select(type == "array")' >/dev/null 2>&1 <<< "${response}" || err "Missing mods data from API response"
+  jq -e '.result.mods[]' >/dev/null 2>&1 <<< "${response}" || { msg "This server is unmodded"; return; }
 
   INPUT+=( $(jq -r ".result.mods[] | .steamWorkshopId" <<< "${response}") )
 }
@@ -242,7 +262,7 @@ setup_mods() {
     local modname="$(gawk 'match($0,/name\s*=\s*"(.+)"/,m){print m[1];exit}' "${modmeta}")"
     [[ -n "${modname}" ]] || err "Missing mod name for: ${modid}"
     debug "Mod ${modid} found: ${modname}"
-    modlink="@${modid}-$(echo "${modname}" | sed -E 's/[^[:alpha:]0-9]+/_/g; s/^_|_$//g')"
+    local modlink="@$(dec2base64 "${modid}")"
 
     if ! [[ -L "${dir_dayz}/${modlink}" ]]; then
       msg "Creating mod symlink for: ${modname} (${modlink})"
