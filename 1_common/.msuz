@@ -1,24 +1,24 @@
 # vim: set filetype=sh :
 
-# Common settings for every system - these can be overrided in specific .msuz
-# files
+# Common settings for every system - these can (and should) be overrided in
+# system-specific .msuz_{system} files
 #
 # vi is POSIX, so default to that
 EDITOR=vi
 SUDO_EDITOR=vi
 export EDITOR SUDO_EDITOR
 
+# Doom Emacs data dirs
+EMACSDIR=~/.emacs.d
+DOOMDIR=~/.config/doom
+DOOMLOCALDIR=~/.emacs.d/.local
+export EMACSDIR DOOMDIR DOOMLOCALDIR
+
 # Configurations for specific computers below
 # We use Stow to install dotfiles, so we only need to check for file presence.
-# . is POSIX-defined, so we use this in stead of 'source'
+# . is POSIX-defined, so we use this instead of 'source'
 #
-# Check for the new Linux cubepoota
-if [ -f $HOME/.msuz_cubepoot ]; then
-    . $HOME/.msuz_cubepoot
 # Check for WSL config
-elif [ -f $HOME/.msuz_wsl ]; then
+if [ -f $HOME/.msuz_wsl ]; then
     . $HOME/.msuz_wsl
-# Check for old laptop config
-elif [ -f $HOME/.msuz_x550cc ]; then
-    . $HOME/.msuz_x550cc
 fi
