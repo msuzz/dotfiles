@@ -8,6 +8,10 @@ export EDITOR SUDO_EDITOR
 
 export PATH="$HOME/.local/bin:$PATH"
 
+# For loading the SSH key
+/usr/bin/keychain --nogui $HOME/.ssh/id_ed25519
+source $HOME/.keychain/$HOST-sh
+
 #export PSN00BSDK_LIBS="/usr/local/lib/libpsn00b"
 #export PATH="$HOME/.local/bin/:$PATH:/usr/local/mipsel-none-elf/bin"
 
