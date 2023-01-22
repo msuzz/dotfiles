@@ -6,9 +6,21 @@ EDITOR=vim
 SUDO_EDITOR=vim
 export EDITOR SUDO_EDITOR
 
-export PSN00BSDK_LIBS="/usr/local/lib/libpsn00b"
+export PATH="$HOME/.local/bin:$PATH"
 
-export PATH="$HOME/.local/bin/:$PATH:/usr/local/mipsel-none-elf/bin"
+# For loading the SSH key
+/usr/bin/keychain --nogui $HOME/.ssh/id_ed25519
+source $HOME/.keychain/$HOST-sh
 
-GUIX_PROFILE="/home/michael/.config/guix/current"
-. "$GUIX_PROFILE/etc/profile"
+#export PSN00BSDK_LIBS="/usr/local/lib/libpsn00b"
+#export PATH="$HOME/.local/bin/:$PATH:/usr/local/mipsel-none-elf/bin"
+
+if test -d "/opt/psn00bsdk"; then
+    export PSN00BSDK_libs="/opt/psn00bsdk/lib/libpsn00b"
+    export PATH="$HOME/.local/bin:$PATH:/opt/psn00bsdk/bin"
+fi
+
+if test -f "/home/michael/.config/guix/current"; then
+    GUIX_PROFILE="/home/michael/.config/guix/current"
+    . "$GUIX_PROFILE/etc/profile"
+fi
