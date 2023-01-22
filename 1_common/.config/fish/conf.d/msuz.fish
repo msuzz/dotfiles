@@ -16,3 +16,7 @@ if test -f $HOME/.config/fish/conf.d/msuz_wsl.fish
     source $HOME/.config/fish/conf.d/msuz_wsl.fish
 end
 
+if test -f $HOME/.config/fish/conf.d/msuz_nix.fish
+    source $HOME/.config/fish/conf.d/msuz_nix.fish
+end
+
