@@ -17,6 +17,11 @@ test -z "$PROFILEREAD" && . /etc/profile || true
 #export LANG=fr_FR.UTF-8	# uncomment this line for French output
 #export LANG=es_ES.UTF-8	# uncomment this line for Spanish output
 
+# Needed because of home-manager
+#if [ -f $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh ]; then
+#    . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+#fi
+
 # My shit
 if [ -f $HOME/.msuz ]; then
     . $HOME/.msuz
