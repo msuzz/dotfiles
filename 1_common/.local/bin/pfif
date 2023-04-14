@@ -1,0 +1,77 @@
+#!/usr/bin/env perl
+# Name: pfif (Perl Find-in-File)
+# Author: Michael Suzzi
+# Last modified: 15/12/22
+# Description: Recursively search all files in specified directory for string matches, returning
+# line number(s) of each successful match.
+
+# First argument is path containing files to recursively search for matches
+# Second argument is string to match
+
+# Output is a dump of a hash of arrays, where each key represents the file searched and each key
+# value is an array with the line number(s) of any string matches.
+
+use strict;
+use warnings;
+use 5.010;
+use Carp;
+use File::Find;
+use File::Spec::Functions qw(canonpath);
+use Data::Dumper;
+
+die "Please provide a directory and a string to match as arguments\n"
+    unless @ARGV;
+
+die "Please provide a string to match\n"
+    unless $ARGV[1];
+
+my $match = qr<$ARGV[1]>;
+my $path = $ARGV[0];
+my %results;
+
+# Recursively run 'wanted' subroutine on each file in $path and subdirectories
+find({
+    wanted =>
+        sub {
+            my $file_w_path = canonpath $File::Find::name; # Relative path of file
+            
+            return unless -f && -r $file_w_path; # Return if unreadable/not a file
+            
+            open_and_match_string($file_w_path, $match, \%results); # Search for matching string
+            return;
+        },
+    no_chdir => 1,
+    },
+    $path
+);
+
+# Use Data::Dumper module to dump %results hash in alphabetical order
+$Data::Dumper::Sortkeys = 1;
+print Dumper \%results;
+
+
+# Open the file provided in $file and search for the string $match.
+# Store the line number of any matches in the $results hash reference.
+sub open_and_match_string {
+    my ($file, $match, $results) = @_;
+    my @hits;
+
+    open my $fh, '<', $file
+        or carp "Cannot open '$file': $!";
+
+    my $current_line = 0;
+    foreach (<$fh>) {
+        $current_line++;
+
+        # Push line number of each match to @hits array
+        for (my $match_count = () = $_ =~ m<$match>gi; $match_count > 0; --$match_count) {
+            push (@hits, $current_line);
+        }
+
+        # @hits becomes the value of a hash key with name of file being searched
+        $results->{$file} = \@hits
+            unless !@hits;
+    }
+
+    close $fh;
+}
