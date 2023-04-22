@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/home/michael/.local/opt/JDownloader2/JDownloader.sh
+Name=JDownloader2
+Icon=/home/michael/.local/opt/JDownloader2/themes/standard/org/jdownloader/images/logo/jd_logo_128_128.png
