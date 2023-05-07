@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-nix-shell ~/.config/doom/shell.nix --run "emacs $@"
+nix-shell ~/.config/doom/shell.nix --run "emacs '$@'"
