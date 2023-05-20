@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 if [ "$1" = "" ]; then  # allows us to specify a directory as an argument
    result="$PWD"        # use working directory if no argument is given
 else
