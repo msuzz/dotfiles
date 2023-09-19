@@ -1,6 +1,8 @@
 set -gx EDITOR vim
 set -gx SUDO_EDITOR vim
 
+alias emacs "emacs-nox"
+
 if test -d /usr/local/lib/libpsn00b
     set -gx PSN00BSDK_LIBS /usr/local/lib/libpsn00b
     fish_add_path /usr/local/mipsel-none-elf/bin
@@ -17,4 +19,3 @@ end
 
 # Ensure always at end of PATH
 fish_add_path ~/.local/bin
-
