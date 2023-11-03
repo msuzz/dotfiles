@@ -6,6 +6,8 @@ EDITOR=vim
 SUDO_EDITOR=vim
 export EDITOR SUDO_EDITOR
 
+alias emacs="emacs-nox"
+
 export PATH="$HOME/.local/bin:$PATH"
 
 # For loading the SSH key
