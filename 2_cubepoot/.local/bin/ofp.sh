@@ -14,7 +14,7 @@ PATH="/home/michael/.local/share/Steam/steamapps/common/Proton - Experimental/:/
 	WINEFSYNC="1" \
 	SteamGameId="65790" \
 	SteamAppId="65790" \
-	WINEDLLOVERRIDES="steam.exe=b;dotnetfx35.exe=b;dotnetfx35setup.exe=b;beclient.dll=b,n;beclient_x64.dll=b,n;d3d11=n;d3d10core=n;d3d9=n;dxgi=n;d3d12=n" \
+	WINEDLLOVERRIDES="steam.exe=b;dotnetfx35.exe=b;dotnetfx35setup.exe=b;beclient.dll=b,n;beclient_x64.dll=b,n;d3d11=n;d3d10core=n;d3d9=n;dxgi=n;d3d12=n;d3d8=n" \
 	STEAM_COMPAT_CLIENT_INSTALL_PATH="/home/michael/.local/share/Steam" \
 	WINE_LARGE_ADDRESS_AWARE="1" \
 	GST_PLUGIN_SYSTEM_PATH_1_0="/home/michael/.local/share/Steam/steamapps/common/Proton - Experimental/files/lib64/gstreamer-1.0:/home/michael/.local/share/Steam/steamapps/common/Proton - Experimental/files/lib/gstreamer-1.0" \
