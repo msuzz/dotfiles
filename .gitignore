@@ -13,6 +13,7 @@
 1_common/.local/share/fonts/material-design-icons.ttf
 1_common/.local/share/fonts/octicons.ttf
 1_common/.local/share/fonts/weathericons.ttf
+1_common/.local/share/fonts/NFM.ttf
 
 # Data directories
 1_common/.local/share/fish/
