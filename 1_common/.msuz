@@ -14,6 +14,10 @@ DOOMDIR=~/.config/doom
 DOOMLOCALDIR=~/.emacs.d/.local
 export EMACSDIR DOOMDIR DOOMLOCALDIR
 
+# NixOS
+NIX_PATH=/home/michael/.nix-defexpr/channels
+export NIX_PATH
+
 # Configurations for specific computers below
 # We use Stow to install dotfiles, so we only need to check for file presence.
 # . is POSIX-defined, so we use this instead of 'source'
