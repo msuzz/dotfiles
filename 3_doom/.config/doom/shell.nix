@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> {} }:
   pkgs.mkShell {
     buildInputs = with pkgs; [
-      emacs28NativeComp
+      emacsNativeComp
       ripgrep
       fd
       fantasque-sans-mono
@@ -15,12 +15,12 @@
       nodePackages.js-beautify
       jdt-language-server
       java-language-server
-      python311
-      python311Packages.pip
-      python311Packages.virtualenv
-      python311Packages.python-lsp-server
-      python311Packages.nose
-      python311Packages.pytest
+      python312
+      python312Packages.pip
+      python312Packages.virtualenv
+      #python312Packages.python-lsp-server
+      #python312Packages.pytest
+      python312Packages.cmake
       unzip
       shellcheck
       multimarkdown
