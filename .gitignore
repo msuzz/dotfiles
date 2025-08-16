@@ -21,3 +21,7 @@
 
 # Ignore fish variables
 1_common/.config/fish/fish_variables
+
+# Nix environment artifacts
+flake.lock
+**/flake.lock

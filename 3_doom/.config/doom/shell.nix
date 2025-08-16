@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> {} }:
   pkgs.mkShell {
     buildInputs = with pkgs; [
-      emacsNativeComp
+      emacs
       ripgrep
       fd
       fantasque-sans-mono
@@ -28,8 +28,8 @@
       sbcl
       fpm
       gfortran
-      php83
-      php83Packages.composer
+      php
+      phpPackages.composer
       isort
       pipenv
       stylelint
