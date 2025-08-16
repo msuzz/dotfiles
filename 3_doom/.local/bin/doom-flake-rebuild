@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# Updates all inputs to the latest versions
+nix flake update ~/.config/doom
+
+nix develop ~/.config/doom#default --command sh -c '
+  echo "Rebuilding Doom environment..."
+  ~/.emacs.d/bin/doom env
+  echo "Syncing Doom packages..."
+  ~/.emacs.d/bin/doom sync
+'
